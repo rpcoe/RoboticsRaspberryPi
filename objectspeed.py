@@ -1,4 +1,5 @@
 import config
+import log
 import time
 
 from gpiozero import Button
@@ -34,6 +35,11 @@ def lastEvent():
 			final *= 3600/5280
 		elif (config.conversion == 'custom'):
 			final = config.customConversion(final)
+		newArr = log.read("recents")
+		if (len(newArr) == 5):
+			del newArr[-1]
+		newArr.insert(0,{"value": final, "time": log.time()})
+		log.write("recents", newArr)
 		print(final)
 		return final
 

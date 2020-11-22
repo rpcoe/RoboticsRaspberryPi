@@ -1,5 +1,7 @@
 import json
 
+from datetime import datetime
+
 #parameters are the value you want to log and the name is a term used to refer to the value
 def write(name, value, logFile="log.json"):
     writeData = {}
@@ -33,3 +35,7 @@ def delete(name, logFile="log.json"):
 
     with open(logFile, 'w') as data_file:
         data = json.dump(data, data_file)
+
+def time():
+    now = datetime.now()
+    return now.strftime("%m/%d/%Y %H:%M:%S")
