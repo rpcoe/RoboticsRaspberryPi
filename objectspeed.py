@@ -7,6 +7,7 @@ first = Button(config.firstInput)
 last = Button(config.lastInput)
 firstActive = False
 lastActive = False
+firstTime = None
 
 def firstEvent():
 	global firstActive
@@ -26,22 +27,21 @@ def lastEvent():
 		#print("bottom activated")
 		lastActive = True
 		timeDiff = time.time() - firstTime
-		print(1/(timeDiff*(4*(3/config.lightSensorDistance))))
-		return 1/(timeDiff*(4*(3/config.lightSensorDistance)))
+		final = 1/(timeDiff*(4*(3/config.lightSensorDistance)))
+		if (config.conversion == 'fpm'):
+			final *= 60
+		elif (config.conversion == 'mph'):
+			final *= 3600/5280
+		elif (config.conversion == 'custom'):
+			final = config.customConversion(final)
+		print(final)
+		return final
 
 def checkSpeed():
-	#global firstActive
-	#global lastActive
-	#global firstTime
 	if first.is_pressed:
 		firstEvent()
 	elif last.is_pressed:
 		return lastEvent()
 	else:
 		global firstActive
-		#global lastActive
-		#global firstTime
 		firstActive = False
-		#lastActive = False
-		#firstTime = 0
-		#print("nothing there")
