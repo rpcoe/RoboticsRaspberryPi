@@ -5,13 +5,13 @@ from objectspeed import checkSpeed
 
 #run commands on startup
 def initial():
-	print("started")
+	print("Starting...")
 
 #run loop commands
 def loop():
     currentSpeed = checkSpeed()
-    if currentSpeed != None:
-        print("something there")
+    # if currentSpeed != None:
+    #     print("something there")
 
 initial()
 
