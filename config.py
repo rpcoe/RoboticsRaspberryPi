@@ -21,5 +21,5 @@ def customConversion(x): #ex. feet per second to meters per second; change numer
 displayWidth = 500
 displayHeight = 500
 
-#test
+#tests
 test = 3

@@ -1,25 +1,16 @@
-from guizero import *
+import time
 import random
+import log
 
+def runTest():
+    final = random.uniform(8.3, 14.5)
+    newArr = log.read("recents")
+    print(len(newArr))
+    if (len(newArr) == 5):
+        del newArr[-1]
+    newArr.insert(0,{"value": final, "time": log.time()})
+    log.write("recents", newArr)
 
-def read_sensor():
-    return random.randrange(3200, 5310, 10) / 100
-
-
-def update_label():
-    text.value = read_sensor()
-    # recursive call
-    text.after(1000, update_label)
-
-
-if __name__ == '__main__':
-    app = App(title='Sensor Display!',
-              height=100,
-              width=200,
-              layout='grid')
-
-    title = Text(app, 'Sensor value:', grid=[0, 0])
-    text = Text(app, "xx", grid=[1, 0])
-
-    text.after(1000, update_label)
-    app.display()
+while True:
+    runTest()
+    time.sleep(2)

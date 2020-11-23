@@ -32,7 +32,8 @@ def lastEvent():
 		if (config.conversion == 'fpm'):
 			final *= 60
 		elif (config.conversion == 'mph'):
-			final *= 3600/5280
+			final = final * (3600/5280)
+			print(final)
 		elif (config.conversion == 'custom'):
 			final = config.customConversion(final)
 		newArr = log.read("recents")
