@@ -4,7 +4,9 @@
 
 # Setup
 
-From the two light sensors, plug the red wires into 5v and the black wires into ground.
+From the two light sensors, plug the red wires into 5v and the black wires into ground on the Raspberry Pi. Plug the white wire from the the sensor that will activate first as the object passes through to whatever IO pin is written in the config.py file (default 23). Do the same for the white wire from the light sensor which will have the object go past it last (default 24).
+
+The pinout for the Raspberry Pi 3 can be found [here](https://www.raspberrypi.org/documentation/usage/gpio/)
 
 # Framework
 
@@ -14,7 +16,7 @@ There are 3 important files: [main.py](#mainpy), [config.py](#configpy), and [us
 
 ### What it does
 
-This file is the main loop. All commands apart from the user interface are run through this file.
+This file is the main loop. All commands apart from the user interface are run through here.
 
 ### How to use
 
