@@ -8,7 +8,7 @@ From the two light sensors, plug the red wires into 5v and the black wires into 
 
 # Framework
 
-There are 3 important files: [main.py](##main.py), [config.py](##config.py), and [userinterface.py](##userinterface.py). 
+There are 3 important files: [main.py](#mainpy), [config.py](#configpy), and [userinterface.py](#userinterfacepy). 
 
 ## main.py
 
