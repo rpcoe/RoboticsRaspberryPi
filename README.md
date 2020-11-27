@@ -69,5 +69,5 @@ text4 = Text(app, "xx", grid=[5, 0]) # creation of text
 ```python
 def loop():
     recents = read('recents') # views content of array in log.json file
-    text4.value = recents[-1]["value"] # sets the initialized text to the value of the last element in the recents array 
+    text4.value = recents[-1]["value"] # sets text element to value of the array's last element
 ```
