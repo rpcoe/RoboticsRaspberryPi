@@ -52,15 +52,20 @@ lightSensorDistance = 3 # distance in inches, 1 hole separation = 3 inches, 0 ho
 
 ### What it does
 
-A single place to store variables which affect how the program runs
+The information which the user can see at a glance. This updates on a different loop compared to the main.py loop.
 
 ### How to use
 
-  1. Change variable values to equal 
-  2. Add function that is supposed to loop in the main.py loop function
+  1. Create text using guizero library
+  2. Change text using guizero library in loop function
 
 ### Example
 
 ```python
-
+text4 = Text(app, "xx", grid=[5, 0]) # creation of text
+```
+```python
+def loop():
+    recents = read('recents') # views content of array in log.json file
+    text4.value = recents[-1]["value"] # sets the initialized text to the value of the last element in the recents array 
 ```
