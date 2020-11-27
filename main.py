@@ -3,12 +3,13 @@ import config
 from time import sleep
 from objectspeed import checkSpeed
 
-#run commands on startup
 def initial():
-	print("Starting...")
+    """Run commands on main.py startup"""
+    print("Starting...")
 
 #run loop commands
 def loop():
+    """Run loop commands with a delay set in conifg.py (loopDelay)"""
     currentSpeed = checkSpeed()
     # if currentSpeed != None:
     #     print("something there")

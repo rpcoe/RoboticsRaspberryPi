@@ -11,6 +11,9 @@ lastActive = False
 firstTime = None
 
 def firstEvent():
+	"""
+	Notes time when an object passes in front of the first light sensor https://github.com/griffing52/RoboticsRaspberryPi
+	"""
 	global firstActive
 	global lastActive
 	if not(firstActive):
@@ -22,6 +25,9 @@ def firstEvent():
 		#print(firstTime)
 	
 def lastEvent():
+	"""
+	Compares current time to time when object passed in front of the first light sensor and calculates the speed
+	"""
 	global lastActive
 	global firstTime
 	if firstTime != 0 and not(lastActive):
@@ -45,6 +51,9 @@ def lastEvent():
 		return final
 
 def checkSpeed():
+	"""
+	Checks to see if an object is in front of the light sensors. Runs associated functions
+	"""
 	if first.is_pressed:
 		firstEvent()
 	elif last.is_pressed:

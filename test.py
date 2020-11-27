@@ -3,6 +3,9 @@ import random
 import log
 
 def runTest():
+    """
+    Just used for testing implementation of new commands
+    """
     final = random.uniform(8.3, 14.5)
     newArr = log.read("recents")
     print(len(newArr))

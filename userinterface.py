@@ -12,6 +12,7 @@ text3 = Text(app, "xx", grid=[4, 0])
 text4 = Text(app, "xx", grid=[5, 0]) # oldest speed test
 
 def loop():
+    """Loop used to update display"""
     recents = read('recents')
     i = 0
     for runs in recents:
