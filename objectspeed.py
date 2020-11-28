@@ -12,7 +12,7 @@ firstTime = None
 
 def firstEvent():
 	"""
-	Notes time when an object passes in front of the first light sensor https://github.com/griffing52/RoboticsRaspberryPi
+	Notes time when an object passes in front of the first light sensor
 	"""
 	global firstActive
 	global lastActive
