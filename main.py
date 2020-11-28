@@ -10,9 +10,7 @@ def initial():
 #run loop commands
 def loop():
     """Run loop commands with a delay set in conifg.py (loopDelay)"""
-    currentSpeed = checkSpeed()
-    # if currentSpeed != None:
-    #     print("something there")
+    checkSpeed()
 
 initial()
 
