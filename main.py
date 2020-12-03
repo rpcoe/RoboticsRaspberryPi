@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import config
 
 from time import sleep

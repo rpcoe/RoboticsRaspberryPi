@@ -6,6 +6,7 @@ firstInput = 23
 loopDelay = 0.00001 # delay between each running the loop function in seconds
 
 #file specific variables
+logFilePath = "/home/pi/Documents/log.json"
 lightSensorDistance = 3 # distance in inches, 1 hole separation = 3 inches, 0 hole = 1.5 inches
 
 #uncomment desired unit for the output of the objectspeed file

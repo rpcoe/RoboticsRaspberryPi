@@ -1,5 +1,7 @@
+#!/usr/bin/env python3
+
 import config
-from log import read
+from log import log
 
 from guizero import App, Text
 
@@ -11,9 +13,11 @@ text2 = Text(app, "xx", grid=[3, 0])
 text3 = Text(app, "xx", grid=[4, 0])
 text4 = Text(app, "xx", grid=[5, 0]) # oldest speed test
 
+logFile = log(config.logFilePath)
+
 def loop():
     """Loop used to update display"""
-    recents = read('recents')
+    recents = logFile.read('recents')
     i = 0
     for runs in recents:
         if (i == 0):
