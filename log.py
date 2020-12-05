@@ -28,7 +28,7 @@ class log:
         with open(self.path, 'w') as fd:
             fd.seek(0)
             json.dump(data, fd)
-        print('%s, %s' % (name, value))
+        # print('%s, %s' % (name, value))
 
     #writes to a value in an object inside of the log file (e.g. "test": {"num": 12, "string": "Hello World"}  log.subWrite("test", "num", 41))
     def subWrite(self, name, subName, value):

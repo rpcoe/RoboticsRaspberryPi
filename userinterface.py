@@ -21,8 +21,8 @@ def loop():
     """Loop used to update display"""
     recents = logFile.read('all')
     i = 0
-    for runs in recents:
-        data = config.conversion.capitalize() + ": " + str(runs["value"]) + " Time: " + runs["time"][0]
+    for x in range(5):
+        data = config.conversion.capitalize() + ": " + str(recents[x]["value"]) + " Time: " + recents[x]["time"][0]
         if (i == 0):
             text0.value = data
         elif (i == 1):
