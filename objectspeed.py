@@ -41,13 +41,14 @@ def lastEvent():
 		elif (config.conversion == 'mph'):
 			final = final * (3600/5280)
 			print(final)
-		elif (config.conversion == 'custom'):
+		else:
 			final = config.customConversion(final)
-		newArr = logFile.read("recents")
-		if (len(newArr) == 5):
-			del newArr[-1]
+		final = round(final, 2)
+		newArr = logFile.read("all")
+		# if (len(newArr) == 5):
+		# 	del newArr[-1]
 		newArr.insert(0,{"value": final, "time": log.time()})
-		logFile.write("recents", newArr)
+		logFile.write("all", newArr)
 		print(final)
 		return final
 
@@ -55,10 +56,11 @@ def checkSpeed():
 	"""
 	Checks to see if an object is in front of the light sensors. Runs associated functions
 	"""
-	if first.is_pressed:
-		firstEvent()
-	elif last.is_pressed:
+	
+	if last.is_pressed:	
 		return lastEvent()
+	elif first.is_pressed:
+		firstEvent()
 	else:
 		global firstActive
 		firstActive = False

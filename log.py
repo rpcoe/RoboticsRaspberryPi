@@ -65,7 +65,7 @@ class log:
     @staticmethod
     def time():
         """
-        Static method that outputs 
+        Static method that outputs an array [(minute, seconds, milliseconds), hour, (month, day, year)]
         """
         now = datetime.now()
-        return now.strftime("%m/%d/%Y %H:%M:%S")
+        return now.strftime("%M:%S.%f")[:-3], now.strftime("%H"), now.strftime("%m/%d/%Y")

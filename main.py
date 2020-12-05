@@ -1,4 +1,5 @@
 #!/usr/bin/env python
+# chmod +x main.py
 
 import config
 
