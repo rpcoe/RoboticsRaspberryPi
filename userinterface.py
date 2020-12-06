@@ -6,8 +6,6 @@ from log import log
 
 from guizero import App, Text
 
-# dislay time */
-
 app = App(title="User Interface", width=config.displayWidth, height=config.displayHeight)
 text0 = Text(app, "xx", grid=[1, 0], size=config.fontSize) # most recent speed test
 text1 = Text(app, "xx", grid=[2, 0], size=config.fontSize)
@@ -19,10 +17,10 @@ logFile = log(config.logFilePath)
 
 def loop():
     """Loop used to update display"""
-    recents = logFile.read('all')
+    recents = logFile.read('all')[:5] # reads 5 most recent logs
     i = 0
-    for x in range(5):
-        data = config.conversion.capitalize() + ": " + str(recents[x]["value"]) + " Time: " + recents[x]["time"][0]
+    for x in recents:
+        data = config.conversion.capitalize() + ": " + str(x["value"]) + " Time: " + x["time"][0]
         if (i == 0):
             text0.value = data
         elif (i == 1):
@@ -38,6 +36,6 @@ def loop():
         
 print('starting ui')
 
-text0.repeat(100, loop)
+text0.repeat(1000, loop)
 
 app.display()

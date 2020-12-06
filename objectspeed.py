@@ -23,7 +23,7 @@ def firstEvent():
 		global firstTime
 		firstTime = time.time()
 		#print("top activated")
-		#print(firstTime)
+		# print(firstTime)
 	
 def lastEvent():
 	"""
@@ -35,14 +35,18 @@ def lastEvent():
 		#print("bottom activated")
 		lastActive = True
 		timeDiff = time.time() - firstTime
-		final = 1/(timeDiff*(4*(3/config.lightSensorDistance)))
+		final = config.lightSensorDistance/timeDiff/12
+		print(timeDiff)
+		# final = 1/(timeDiff*(4*(3/config.lightSensorDistance))) # converting data to feet per second
 		if (config.conversion == 'fpm'):
 			final *= 60
+			print("fpm")
 		elif (config.conversion == 'mph'):
 			final = final * (3600/5280)
-			print(final)
-		else:
+			print("mph")
+		elif (config.conversion != 'fps'):
 			final = config.customConversion(final)
+			print("custom")
 		final = round(final, 2)
 		newArr = logFile.read("all")
 		# if (len(newArr) == 5):
