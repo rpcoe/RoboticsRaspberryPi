@@ -71,3 +71,10 @@ def loop():
     recents = read('recents') # views content of array in log.json file
     text4.value = recents[-1]["value"] # sets text element to value of the array's last element
 ```
+# Notes for further development
+
+If changes are made to main.py or userinterace.py and it is no longer running on startup, go into cmd and cd into the files path. Then run these commands:
+```bash
+chmod +x main.py
+chmod +x userinterface.py
+```
