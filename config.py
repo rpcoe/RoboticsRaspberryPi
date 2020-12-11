@@ -19,8 +19,8 @@ def customConversion(x): # ex. feet per second to meters per second; change nume
     return x * 3.281
 
 #user interface settings
-displayWidth = 800
-displayHeight = 480
+displayWidth = 470
+displayHeight = 266
 fontSize = 30
 recentBalls = 5 # amount of balls displayed on the userinterface as well as recorded in the recents array in log.json
 
