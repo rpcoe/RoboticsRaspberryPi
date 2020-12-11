@@ -1,41 +1,38 @@
 #!/usr/bin/env python3
 # chmod +x main.py
 
+import time
+
 import config
 from log import log
-
-from guizero import App, Text
-
-app = App(title="User Interface", width=config.displayWidth, height=config.displayHeight)
-text0 = Text(app, "xx", grid=[1, 0], size=config.fontSize) # most recent speed test
-text1 = Text(app, "xx", grid=[2, 0], size=config.fontSize)
-text2 = Text(app, "xx", grid=[3, 0], size=config.fontSize)
-text3 = Text(app, "xx", grid=[4, 0], size=config.fontSize)
-text4 = Text(app, "xx", grid=[5, 0], size=config.fontSize) # oldest speed test
+from guizero import App, TextBox
 
 logFile = log(config.logFilePath)
+app = App(title="User Interface", width=config.displayWidth, height=config.displayHeight)
+text = TextBox(app, width="fill", height="fill", multiline=True, scrollbar=True)
+text.text_size = config.fontSize
+
+text.disable()
+
+textBoxData = ""
 
 def loop():
-    """Loop used to update display"""
-    recents = logFile.read('all')[:5] # reads 5 most recent logs
-    i = 0
-    for x in recents:
-        data = config.conversion.capitalize() + ": " + str(x["value"]) + " Time: " + x["time"][0]
-        if (i == 0):
-            text0.value = data
-        elif (i == 1):
-            text1.value = data
-        elif (i == 2):
-            text2.value = data
-        elif (i == 3):
-            text3.value = data
-        elif (i == 4):
-            text4.value = data
-            break
-        i+=1
-        
-print('starting ui')
+    """
+    Loop used to update display
+    """
+    newData = logFile.read("all")
 
-text0.repeat(1000, loop)
+    global textBoxData
+    for x in reversed(newData):
+        textData = config.conversion.capitalize() + ": " + str(x["value"]) + " Time: " + x["time"][0] + "\n"
+        if textData not in text.value:
+            textBoxData = textData + textBoxData
+            text.enable()
+            text.value = textBoxData
+            text.disable()
+
+print("starting ui")
+
+text.repeat(300, loop)
 
 app.display()
