@@ -20,16 +20,19 @@ def loop():
     """
     Loop used to update display
     """
-    newData = logFile.read("all")
+    try:
+        newData = logFile.read("all")
 
-    global textBoxData
-    for x in reversed(newData):
-        textData = config.conversion.capitalize() + ": " + str(x["value"]) + " Time: " + x["time"][0] + "\n"
-        if textData not in text.value:
-            textBoxData = textData + textBoxData
-            text.enable()
-            text.value = textBoxData
-            text.disable()
+        global textBoxData
+        for x in reversed(newData):
+            textData = config.conversion.capitalize() + ": " + str(x["value"]) + " Time: " + x["time"][0] + "\n"
+            if textData not in text.value:
+                textBoxData = textData + textBoxData
+                text.enable()
+                text.value = textBoxData
+                text.disable()
+    except:
+        print("UI error")
 
 print("starting ui")
 

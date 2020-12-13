@@ -3,7 +3,8 @@ lastInput = 24
 firstInput = 23
 
 #loop variables
-loopDelay = 0.00001 # delay between each running the loop function in seconds
+# loopDelay = 0.00001 # delay between each running the loop function in seconds
+loopDelay = 0.01 # delay between each running the loop function in seconds
 
 #file specific variables
 logFilePath = "/home/pi/Documents/log.json"
@@ -21,7 +22,7 @@ def customConversion(x): # ex. feet per second to meters per second; change nume
 #user interface settings
 displayWidth = 470
 displayHeight = 266
-fontSize = 30
+fontSize = 20
 recentBalls = 5 # amount of balls displayed on the userinterface as well as recorded in the recents array in log.json
 
 #tests

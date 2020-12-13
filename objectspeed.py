@@ -22,8 +22,6 @@ def firstEvent():
 		lastActive = False
 		global firstTime
 		firstTime = time.time()
-		#print("top activated")
-		# print(firstTime)
 	
 def lastEvent():
 	"""
@@ -37,7 +35,8 @@ def lastEvent():
 		timeDiff = time.time() - firstTime
 		final = config.lightSensorDistance/timeDiff/12
 		print(timeDiff)
-		# final = 1/(timeDiff*(4*(3/config.lightSensorDistance))) # converting data to feet per second
+
+		# conversions
 		if (config.conversion == 'fpm'):
 			final *= 60
 			print("fpm")
@@ -47,10 +46,9 @@ def lastEvent():
 		elif (config.conversion != 'fps'):
 			final = config.customConversion(final)
 			print("custom")
+
 		final = round(final, 2)
 		newArr = logFile.read("all")
-		# if (len(newArr) == 5):
-		# 	del newArr[-1]
 		newArr.insert(0,{"value": final, "time": log.time()})
 		logFile.write("all", newArr)
 		print(final)
