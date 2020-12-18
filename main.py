@@ -16,7 +16,7 @@ def initial():
 #run loop commands
 def loop():
     """Run loop commands with a delay set in conifg.py (loopDelay)"""
-    osc.reset()
+    osc.reset() 
     # checkSpeed()
 
 initial()
