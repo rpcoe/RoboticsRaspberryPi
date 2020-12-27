@@ -10,7 +10,7 @@ import objectspeedcopy as osc
 def initial():
     """Run commands on main.py startup"""
     print("Starting...")
-    osc.checkSpeed()
+    osc.initial()
 
 
 #run loop commands
