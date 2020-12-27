@@ -53,10 +53,10 @@ def lastEvent():
 		print(f"lastEvent Error; firstTime: {firstTime}")
 
 
-def checkSpeed():
-	"""
-	Checks to see if an object is in front of the light sensors. Runs associated functions
-	"""
+def setup():
+	# """
+	# Checks to see if an object is in front of the light sensors. Runs associated function/s
+	# """
 	last.when_pressed = lastEvent
 	first.when_pressed = firstEvent
 
