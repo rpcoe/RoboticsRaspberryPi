@@ -5,22 +5,25 @@ import config
 
 from time import sleep
 # from objectspeed import checkSpeed
-import objectspeedcopy as osc
+import objectspeedRob as osc
 
 def initial():
     """Run commands on main.py startup"""
     print("Starting...")
-    osc.setup()
+    osc.setUp()
 
 
 #run loop commands
+"""
 def loop():
-    """Run loop commands with a delay set in conifg.py (loopDelay)"""
+    # Run loop commands with a delay set in conifg.py (loopDelay)
     osc.reset() 
     # checkSpeed()
+"""
 
 initial()
 
 while True:
-	loop()
-	sleep(config.loopDelay)
+	#loop()
+	#sleep(config.loopDelay)
+    osc.measureSpeed()
