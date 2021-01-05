@@ -1,3 +1,4 @@
+
 import config
 from log import log
 import time
@@ -19,15 +20,23 @@ def firstEvent():
 	global lastTime
 	if firstTime == 0:
 	    firstTime = time.time()
-	#    print("test")
-	while (not(last.is_pressed)):
+	    #print("test")
+	
+	while (not(last.is_pressed)):  # try wait for press  with timeout??
+                """
 		lastTime = time.time()
 		timeDiff = lastTime - firstTime
 		if(timeDiff > .200) :
                         print("Too Slow")
                         break
 		#print(lastTime)
-	timeDiff = lastTime - firstTime
+		"""
+	#timeDiff = lastTime - firstTime
+	
+	#print(last)
+	#last.wait_for_press(1)
+	
+	timeDiff= time.time() - firstTime
 	final = config.lightSensorDistance/timeDiff/12
 	final = round(final,2)
 	print(final)
@@ -56,5 +65,7 @@ def reset():
 	# 	print(f'reset Error; firstTime {firstTime}')
 
 def measureSpeed():
-	while True:
-		reset()
+        global firstTime
+	#while True:
+		# reset()
+		
